@@ -280,7 +280,7 @@ svg.skill-icon {
 /* Hobby flip cards */
 .flip-card {
     perspective: 800px;
-    height: 130px;
+    height: 140px;
     cursor: pointer;
     outline-offset: 4px;
 }
