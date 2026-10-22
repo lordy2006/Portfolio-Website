@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LWAM — Portfolio</title>
+    <meta name="description" content="Portfolio of Lord Wenson Managaytay, BSIT student at the University of Cebu - Main Campus.">
+    <meta name="theme-color" content="#090d16">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%BB%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- External Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#090d16] text-slate-200 antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="scroll-progress" class="fixed top-0 left-0 z-[60] h-1 w-full origin-left bg-gradient-to-r from-cyan-400 to-emerald-400 pointer-events-none" style="transform: scaleX(0)" aria-hidden="true"></div>
+
+   <!-- DYNAMIC MOVING BACKGROUND GRADIENTS (MULTI-SIZED ORBS) -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    
+    <!-- Orb 1: Extra Large Cyan Ambient (Top Left) -->
+    <div class="absolute -top-20 -left-20 w-[34rem] h-[34rem] bg-cyan-500/15 rounded-full blur-[120px] animate-orb-1"></div>
+    
+    <!-- Orb 2: Extra Large Emerald Ambient (Bottom Right) -->
+    <div class="absolute -bottom-20 -right-20 w-[36rem] h-[36rem] bg-emerald-500/15 rounded-full blur-[130px] animate-orb-2"></div>
+
+    <!-- Orb 3: Medium Indigo Orb (Middle Right) -->
+    <div class="absolute top-1/3 right-1/4 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl animate-orb-3"></div>
+
+    <!-- Orb 4: Small Teal Accent Orb (Middle Left) -->
+    <div class="absolute top-1/2 left-10 w-48 h-48 bg-teal-400/20 rounded-full blur-2xl animate-orb-4"></div>
+
+    <!-- Orb 5: Medium Blue Orb (Lower Left) -->
+    <div class="absolute bottom-1/4 left-1/3 w-72 h-72 bg-blue-600/15 rounded-full blur-3xl animate-orb-5"></div>
+
+    <!-- Orb 6: Small Cyan Glow Orb (Top Right) -->
+    <div class="absolute top-16 right-20 w-36 h-36 bg-cyan-400/25 rounded-full blur-2xl animate-orb-2"></div>
+
+    <!-- Subtle Grid Pattern Overlay -->
+    <div class="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:28px_28px] opacity-25"></div>
+</div>
+
+    <!-- CURSOR GLOW -->
+    <div id="cursor-glow" aria-hidden="true"></div>
+
+    <!-- TOP NAVIGATION BAR (sticky) -->
+    <nav id="site-nav" class="sticky top-0 z-50 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 shadow-xl" aria-label="Main navigation">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 h-16 grid grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr] items-center">
+
+            <!-- Logo -->
+            <a href="#hero" class="justify-self-start font-mono text-cyan-400 font-extrabold text-2xl tracking-wider flex items-center gap-1 hover:text-cyan-300 transition-colors">
+                <span class="text-emerald-400">&lt;</span> LWAM <span class="text-emerald-400">/&gt;</span>
+            </a>
+
+            <!-- Desktop Nav Links (centered in the bar) -->
+            <div class="hidden lg:flex items-center justify-center gap-1 font-sans text-base xl:text-lg font-medium tracking-wide text-slate-300">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <!-- Mobile / Tablet menu button -->
+            <button id="menu-toggle" type="button" class="lg:hidden justify-self-end w-11 h-11 flex items-center justify-center rounded-lg border border-slate-700 text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile / Tablet menu panel -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full border-t border-b border-slate-800/80 bg-slate-950/95 backdrop-blur-md shadow-2xl px-6 md:px-12 py-2">
+            <div class="flex flex-col font-sans text-lg font-medium text-slate-300">
+                <a href="#hero" class="mobile-link">Home</a>
+                <a href="#about" class="mobile-link">About</a>
+                <a href="#education" class="mobile-link">Education</a>
+                <a href="#skills" class="mobile-link">Skills</a>
+                <a href="#projects" class="mobile-link">Projects</a>
+                <a href="#contact" class="mobile-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pt-10 md:pt-14 pb-20 space-y-28">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="min-h-[80vh] flex flex-col-reverse lg:flex-row items-center justify-between gap-12 pt-4 scroll-mt-24">
+            
+            <!-- Left Side: Text Content -->
+            <div class="flex-1 min-w-0 flex flex-col items-start space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    BSIT Student · UNIVERSITY OF CEBU - MAIN CAMPUS
+                </div>
+
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    <span class="font-bebas text-6xl sm:text-7xl xl:text-8xl 2xl:text-9xl leading-none tracking-wider bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">Lord Wenson</span>
+                </h1>
+
+                <!-- Typewriter line (text is filled in by script.js) -->
+                <p id="typewriter" class="font-mono text-lg md:text-2xl text-emerald-400 min-h-[2rem] md:min-h-[2.25rem]" aria-label="IT Student, Programmer, Gamer, Rubik's Cube Solver">
+                    <span class="text-slate-500" aria-hidden="true">&gt;</span>
+                    <span id="typewriter-text" aria-hidden="true">BSIT Student</span><span class="typewriter-caret" aria-hidden="true"></span>
+                </p>
+
+                <p class="max-w-2xl text-slate-400 text-base md:text-lg leading-relaxed">
+                    I’m an Information Technology student who loves building practical solutions. My goal is to create reliable systems that run smoothly while keeping the user experience clean, fast, and easy to navigate.
+                </p>
+
+                <!-- I-butang sila DINHI (ubos sa paragraph, ibabaw sa mga buttons) -->
+                <div class="flex items-center gap-4 py-2">
+                    <!-- GitHub Link -->
+                    <a href="https://github.com/lordy2006" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-all" title="GitHub Profile">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+
+                    <!-- Facebook Link -->
+                <a href="https://www.facebook.com/winxgaming.yt" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile" class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-all" title="Facebook Profile">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+
+                    <!-- Email / Copy Email Button -->
+                    <button type="button" onclick="copyEmail()" aria-label="Copy email address" class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-all" title="Copy Email Address">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </button>
+                </div>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#projects" class="px-6 py-3 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-sm transition-all shadow-lg shadow-cyan-500/20 hover:scale-105">
+                        Explore Featured Projects
+                    </a>
+                    <a href="CV/LordWenson_CV.pdf" target="_blank" download class="px-6 py-3 rounded-lg border border-cyan-500/50 hover:border-cyan-400 text-cyan-300 hover:text-cyan-200 text-sm font-medium transition-all hover:bg-cyan-500/10 flex items-center gap-2 group">
+                        <svg class="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Download CV
+                    </a>
+                    <a href="#skills" class="px-6 py-3 rounded-lg border border-slate-700 hover:border-slate-500 text-slate-300 text-sm font-medium transition-all hover:bg-slate-800/50">
+                        View Tech Stack
+                    </a>
+                </div>
+            </div>
+            
+
+            <!-- Right Side: Profile Photo Box (Amo nang gihimong Circle) -->
+            <div class="flex-shrink-0 relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[420px] xl:w-[560px] xl:h-[560px] group">
+                <!-- Glowing Ambient Background -->
+                <div class="absolute -inset-2 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full blur-lg opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                
+                <!-- The Circular Photo Container -->
+                <div class="relative w-full h-full glass-card rounded-full border-2 border-cyan-500/50 overflow-hidden shadow-2xl">
+                    <img src="Images/LWAM(1).jpg" alt="Lord Wenson Managaytay" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-20 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-24">
+            <!-- Section Header -->
+            <div class="mb-12">
+                <span class="text-cyan-400 font-mono text-sm tracking-wider uppercase">01. About Me</span>
+                <h2 class="font-bebas text-4xl md:text-5xl text-white tracking-wide mt-1">PROFILE</h2>
+            </div>
+
+            <!-- Main Grid: Gi-adjust nato aron mas dako ang left card (col-span-3) kaysa sa right images (col-span-2) -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                
+                <!-- Left Card: Mas dako na ang width (col-span-3) -->
+                <div class="lg:col-span-3 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 md:p-8 backdrop-blur-md shadow-xl hover:border-cyan-400/60 hover:shadow-[0_0_35px_rgba(34,211,238,0.2)] hover:-translate-y-1 transition-all duration-300">
+                    <!-- Profile Picture -->
+                    <div class="flex justify-center mb-8">
+                        <div class="w-48 h-48 md:w-56 md:h-56 rounded-full p-1 bg-gradient-to-tr from-cyan-500 to-emerald-400 shadow-lg shadow-cyan-500/20">
+                            <img src="Images/gradpic(1).jpg" alt="Lord Wenson Managaytay" class="w-full h-full object-cover rounded-full">
+                        </div>
+                    </div>
+
+                    <!-- Heading with Gradient -->
+                    <h3 class="font-bebas text-3xl md:text-4xl tracking-wide bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent mb-4 leading-snug">
+                        HEY! I LOVE BUILDING THINGS THAT ACTUALLY WORK.
+                    </h3>
+
+                    <!-- Quick facts -->
+                    <ul class="flex flex-wrap gap-2 mb-6" aria-label="Quick facts">
+                        <li class="fact-chip" style="--c: 6, 182, 212"><span aria-hidden="true">📍</span> Cebu, Philippines</li>
+                        <li class="fact-chip" style="--c: 59, 130, 246"><span aria-hidden="true">🎓</span> BSIT Student</li>
+                        <li class="fact-chip" style="--c: 168, 85, 247"><span aria-hidden="true">💻</span> Programmer</li>
+                        <li class="fact-chip" style="--c: 16, 185, 129"><span aria-hidden="true">🧩</span> Cube Solver</li>
+                    </ul>
+
+                    <!-- Bio Paragraph -->
+                    <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-6">
+                        I’m an IT student currently studying at the University of Cebu Main Campus. Ever since I started getting into tech, I’ve always been fascinated by how software, databases, and networks interact behind the scenes to power digital solutions.
+                    </p>
+                    <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-8">
+                        Most of my academic projects involve developing desktop applications, managing systems, and configuring network topologies. I genuinely enjoy taking a complex logic problem, breaking it down piece by piece, and building a clean, responsive solution for users.
+                    </p>
+
+                    <!-- Hobbies & Interests -->
+                    <div>
+                        <h4 class="font-bebas text-cyan-400 text-xl md:text-2xl tracking-wider uppercase mb-3 flex items-center gap-2">
+                            <span>HOBBIES & INTERESTS</span>
+                        </h4>
+                        <p class="text-slate-500 font-mono text-xs mb-3">Hover or tap a card to flip it.</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+
+                            <div class="flip-card" style="--c: 249, 115, 22" tabindex="0" aria-label="Call of Duty: Mobile">
+                                <div class="flip-inner">
+                                    <div class="flip-face flip-front">
+                                        <span class="text-2xl mb-1" aria-hidden="true">🎮</span>
+                                        <span class="font-bebas text-lg tracking-wide text-white">Call of Duty: Mobile (CODM)</span>
+                                    </div>
+                                    <div class="flip-face flip-back">
+                                        <p class="text-xs text-slate-200 leading-snug">Playing Call of Duty: Mobile is how I relax after a long day of coding. It’s fast and fun, and I enjoy the challenge of every match.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flip-card" style="--c: 59, 130, 246" tabindex="0" aria-label="Mobile Legends: Bang Bang">
+                                <div class="flip-inner">
+                                    <div class="flip-face flip-front">
+                                        <span class="text-2xl mb-1" aria-hidden="true">⚔️</span>
+                                        <span class="font-bebas text-lg tracking-wide text-white">Mobile Legends: Bang Bang (MLBB)</span>
+                                    </div>
+                                    <div class="flip-face flip-back">
+                                        <p class="text-xs text-slate-200 leading-snug">Mobile Legends is a team game, so I enjoy playing with friends. It takes quick thinking and good coordination to win together.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flip-card" style="--c: 16, 185, 129" tabindex="0" aria-label="Rubik's Cube">
+                                <div class="flip-inner">
+                                    <div class="flip-face flip-front">
+                                        <span class="text-2xl mb-1" aria-hidden="true">🧩</span>
+                                        <span class="font-bebas text-lg tracking-wide text-white">RUBIK'S CUBE</span>
+                                    </div>
+                                    <div class="flip-face flip-back">
+                                        <p class="text-xs text-slate-200 leading-snug">A 3×3 cube has over 43 quintillion possible combinations, and I can solve it.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flip-card" style="--c: 168, 85, 247" tabindex="0" aria-label="Movies and anime">
+                                <div class="flip-inner">
+                                    <div class="flip-face flip-front">
+                                        <span class="text-2xl mb-1" aria-hidden="true">🎬</span>
+                                        <span class="font-bebas text-lg tracking-wide text-white">MOVIES & ANIME</span>
+                                    </div>
+                                    <div class="flip-face flip-back">
+                                        <p class="text-xs text-slate-200 leading-snug">Good stories and good animation make movies and anime my go-to way to unwind.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: photos with captions -->
+                <div class="lg:col-span-2 flex flex-col gap-4">
+                    <figure class="relative w-full h-36 md:h-[275px] rounded-xl overflow-hidden border border-slate-800 bg-slate-900/40 shadow-lg group hover:border-cyan-400/60 hover:shadow-[0_0_35px_rgba(34,211,238,0.2)] hover:-translate-y-1 transition-all duration-300">
+                        <img src="Images/workspace.jpg" alt="Laptop Setup" class="photo-zoom w-full h-full object-cover">
+                        <figcaption class="photo-caption">My setup</figcaption>
+                    </figure>
+                    
+                    <figure class="relative w-full h-36 md:h-[275px] rounded-xl overflow-hidden border border-slate-800 bg-slate-900/40 shadow-lg group hover:border-cyan-400/60 hover:shadow-[0_0_35px_rgba(34,211,238,0.2)] hover:-translate-y-1 transition-all duration-300">
+                        <img src="Images/anime.jpg" alt="Anime" class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500">
+                        <figcaption class="photo-caption">Anime night</figcaption>
+                    </figure>
+                    
+                    <figure class="relative w-full h-36 md:h-[275px] rounded-xl overflow-hidden border border-slate-800 bg-slate-900/40 shadow-lg group hover:border-cyan-400/60 hover:shadow-[0_0_35px_rgba(34,211,238,0.2)] hover:-translate-y-1 transition-all duration-300">
+                        <img src="Images/cube(1).jpg" alt="Rubik's Cube" class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500">
+                        <figcaption class="photo-caption">Cube practice</figcaption>
+                    </figure>
+                </div>
+
+            </div>
+        </section>
+
+        
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="py-20 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-24">
+            <!-- Section Header -->
+            <div class="mb-12">
+                <span class="text-cyan-400 font-mono text-sm tracking-wider uppercase">02. Education</span>
+                <h2 class="font-bebas text-4xl md:text-5xl text-white tracking-wide mt-1">ACADEMIC HISTORY</h2>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="relative border-l border-slate-800 ml-4 md:ml-6 space-y-12">
+                
+                <!-- Item 1: College (BSIT) - Present Card nga naay Emerald Theme -->
+                <div class="relative pl-8 md:pl-10 group">
+                    <!-- Glowing Timeline Dot -->
+                    <div class="absolute -left-[10.5px] top-1.5 w-5 h-5 rounded-full bg-gradient-to-tr from-cyan-400 to-emerald-400 shadow-lg shadow-emerald-500/60 ring-4 ring-slate-950 group-hover:scale-125 transition-transform duration-300"></div>
+                    
+                    <!-- Year Label (Mausab pagka-Emerald inig hover) -->
+                    <div class="mb-3">
+                        <span class="font-mono text-cyan-400 group-hover:text-emerald-400 transition-colors duration-300 text-base md:text-lg tracking-wider font-semibold">2024 - Present</span>
+                    </div>
+
+                    <!-- Education Card with VIBRANT EMERALD Hover Glow & Lift -->
+                    <div class="bg-slate-900/60 border border-emerald-500/30 rounded-2xl p-6 md:p-8 backdrop-blur-md shadow-xl hover:border-emerald-400/60 hover:shadow-[0_0_35px_rgba(16,185,129,0.25)] hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                            <div>
+                                <h3 class="font-bebas text-2xl md:text-3xl text-white group-hover:text-emerald-400 transition-colors duration-300 tracking-wide">Bachelor of Science in Information Technology (BSIT)</h3>
+                                <!-- University Label (Mausab pagka-Emerald inig hover) -->
+                                <p class="text-cyan-300/90 group-hover:text-emerald-400 transition-colors duration-300 text-sm font-mono mt-1">University of Cebu — Main Campus <span class="text-slate-500 group-hover:text-emerald-500/50 mx-2">•</span> Sanciangko St., Cebu City</p>
+                            </div>
+                            <!-- College Badge (Mausab pagka-Emerald inig hover) -->
+                            <span class="self-start sm:self-center px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/40 group-hover:text-emerald-400 transition-colors duration-300 rounded-full text-xs font-mono tracking-wider uppercase shadow-sm">College</span>
+                        </div>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                            Focusing on software development, database systems, networking, and human-computer interaction.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Senior High School (Cyan Theme) -->
+                <div class="relative pl-8 md:pl-10 group">
+                    <!-- Glowing Timeline Dot -->
+                    <div class="absolute -left-[10.5px] top-1.5 w-5 h-5 rounded-full bg-cyan-400 shadow-lg shadow-cyan-500/50 ring-4 ring-slate-950 group-hover:scale-125 transition-transform duration-300"></div>
+                    
+                    <!-- Year Label -->
+                    <div class="mb-3">
+                        <span class="font-mono text-cyan-400 group-hover:text-cyan-300 transition-colors duration-300 text-base md:text-lg tracking-wider font-semibold">2022 - 2024</span>
+                    </div>
+
+                    <!-- Education Card with VIBRANT CYAN Hover Glow & Lift -->
+                    <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 md:p-8 backdrop-blur-md shadow-xl hover:border-cyan-400/60 hover:shadow-[0_0_35px_rgba(34,211,238,0.2)] hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                            <div>
+                                <h3 class="font-bebas text-2xl md:text-3xl text-white group-hover:text-cyan-300 transition-colors duration-300 tracking-wide">Senior High School</h3>
+                                <p class="text-cyan-300/90 group-hover:text-cyan-300 transition-colors duration-300 text-sm font-mono mt-1">Tubod National High School (TNHS) <span class="text-slate-500 group-hover:text-cyan-500/50 mx-2">•</span> Tubod, Minglanilla, Cebu</p>
+                            </div>
+                            <!-- Enhanced Badge -->
+                            <span class="self-start sm:self-center px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:bg-cyan-500/20 group-hover:border-cyan-400/50 group-hover:text-cyan-300 transition-colors duration-300 rounded-full text-xs font-mono tracking-wider uppercase shadow-sm">GAS Strand</span>
+                        </div>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                            General Academic Strand <span class="text-slate-500 mx-2">•</span> Completed secondary education with a focus on foundational academics.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TECHNICAL CAPABILITIES / SKILLS SECTION -->
+        <section id="skills" class="py-20 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-24">
+            <!-- Section Header -->
+            <div class="mb-12">
+                <span class="text-cyan-400 font-mono text-sm tracking-wider uppercase">03. Technical Capabilities</span>
+                <h2 class="font-bebas text-4xl md:text-5xl text-white tracking-wide mt-1">Technologies & Tools</h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mb-8" id="skill-filters">
+                <button data-filter="all" type="button" aria-pressed="true" class="filter-btn px-4 py-2 bg-cyan-500/20 border border-cyan-500 text-cyan-400 rounded-lg text-sm font-mono tracking-wider transition-all">All Stack</button>
+                <button data-filter="languages" type="button" aria-pressed="false" class="filter-btn px-4 py-2 bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-white rounded-lg text-sm font-mono tracking-wider transition-all">Languages</button>
+                <button data-filter="databases" type="button" aria-pressed="false" class="filter-btn px-4 py-2 bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-white rounded-lg text-sm font-mono tracking-wider transition-all">Databases</button>
+                <button data-filter="networking" type="button" aria-pressed="false" class="filter-btn px-4 py-2 bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-white rounded-lg text-sm font-mono tracking-wider transition-all">Networking & Tools</button>
+            </div>
+
+            <!-- Skill level legend -->
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6 -mt-3 text-sm font-mono text-slate-500">
+                <span class="text-slate-400">Skill level:</span>
+
+                <span class="flex items-center gap-2">
+                    <span class="flex gap-1" aria-hidden="true">
+                        <span class="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-slate-700"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-slate-700"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-slate-700"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-slate-700"></span>
+                    </span>
+                    Beginner
+                </span>
+
+                <span class="flex items-center gap-2">
+                    <span class="flex gap-1" aria-hidden="true">
+                        <span class="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-slate-700"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-slate-700"></span>
+                    </span>
+                    Intermediate
+                </span>
+
+                <span class="flex items-center gap-2">
+                    <span class="flex gap-1" aria-hidden="true">
+                        <span class="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
+                    </span>
+                    Advanced
+                </span>
+            </div>
+
+            <!-- Skills Grid (Naay min-height aron locked ang tibuok box ug dili mo-isbog ang Projects) -->
+            <!-- Gidugangan og items-start aron dili mo-stretch paubos ang mga cards kung gamay ra sila -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 items-stretch content-start min-h-[380px]" id="skills-grid">
+    
+                        <!-- C# (.NET) -->
+            <div class="skill-card bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 backdrop-blur-md shadow-xl group flex flex-col justify-between" data-category="languages" data-level="3" data-theme="purple">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bebas text-2xl text-white tracking-wide transition-colors"><i class="devicon-csharp-plain skill-icon"></i>C# (.NET)</h3>
+                        <div class="skill-dots flex gap-1 shrink-0"></div>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm">Desktop applications & WinForms development.</p>
+                    <p class="skill-used">Used in: <span>Grab'n'Eat POS, Accounting System</span></p>
+                </div>
+            </div>
+
+            <!-- Java -->
+            <div class="skill-card bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 backdrop-blur-md shadow-xl group flex flex-col justify-between" data-category="languages" data-level="2" data-theme="orange">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bebas text-2xl text-white tracking-wide transition-colors"><i class="devicon-java-plain skill-icon"></i>Java</h3>
+                        <div class="skill-dots flex gap-1 shrink-0"></div>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm">Object-oriented programming & logic structures.</p>
+                    <p class="skill-used">Used in: <span>Surf Game, SJF CPU Simulator</span></p>
+                </div>
+            </div>
+
+            <!-- Python -->
+            <div class="skill-card bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 backdrop-blur-md shadow-xl group flex flex-col justify-between" data-category="languages" data-level="2" data-theme="yellow">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bebas text-2xl text-white tracking-wide transition-colors"><i class="devicon-python-plain skill-icon"></i>Python</h3>
+                        <div class="skill-dots flex gap-1 shrink-0"></div>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm">Scripting, data structures & backend logic.</p>
+                </div>
+            </div>
+
+            <!-- HTML -->
+            <div class="skill-card bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 backdrop-blur-md shadow-xl group flex flex-col justify-between" data-category="languages" data-level="3" data-theme="rose">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bebas text-2xl text-white tracking-wide transition-colors"><i class="devicon-html5-plain skill-icon"></i>HTML</h3>
+                        <div class="skill-dots flex gap-1 shrink-0"></div>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm">Web page structuring and semantic layouts.</p>
+                    <p class="skill-used">Used in: <span>Cafe Essence</span></p>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <div class="skill-card bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 backdrop-blur-md shadow-xl group flex flex-col justify-between" data-category="languages" data-level="3" data-theme="blue">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bebas text-2xl text-white tracking-wide transition-colors"><i class="devicon-css3-plain skill-icon"></i>CSS</h3>
+                        <div class="skill-dots flex gap-1 shrink-0"></div>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm">Styling, responsive design & Tailwind CSS.</p>
+                    <p class="skill-used">Used in: <span>Cafe Essence</span></p>
+                </div>
+            </div>
+
+            <!-- MySQL / MariaDB -->
+            <div class="skill-card bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 backdrop-blur-md shadow-xl group flex flex-col justify-between" data-category="databases" data-level="2" data-theme="cyan">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bebas text-2xl text-white tracking-wide transition-colors"><i class="devicon-mysql-plain skill-icon"></i>MySQL / MariaDB</h3>
+                        <div class="skill-dots flex gap-1 shrink-0"></div>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm">Relational database management via XAMPP.</p>
+                </div>
+            </div>
+
+            <!-- SQL Server -->
+            <div class="skill-card bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 backdrop-blur-md shadow-xl group flex flex-col justify-between" data-category="databases" data-level="2" data-theme="indigo">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bebas text-2xl text-white tracking-wide transition-colors"><i class="devicon-microsoftsqlserver-plain skill-icon"></i>SQL Server</h3>
+                        <div class="skill-dots flex gap-1 shrink-0"></div>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm">Database connectivity using ADO.NET.</p>
+                </div>
+            </div>
+
+            <!-- Networking -->
+            <div class="skill-card bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 backdrop-blur-md shadow-xl group flex flex-col justify-between" data-category="networking" data-level="3" data-theme="emerald">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bebas text-2xl text-white tracking-wide transition-colors"><svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5l-5.5 5.5M12 11.5l5.5 5.5"/></svg>Networking</h3>
+                        <div class="skill-dots flex gap-1 shrink-0"></div>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm">Network topologies, VLANs & routing simulation.</p>
+                </div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="skill-card bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 backdrop-blur-md shadow-xl group flex flex-col justify-between" data-category="networking" data-level="3" data-theme="pink">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bebas text-2xl text-white tracking-wide transition-colors"><i class="devicon-github-original skill-icon"></i>GitHub</h3>
+                        <div class="skill-dots flex gap-1 shrink-0"></div>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm">Source code management and version control.</p>
+                    <p class="skill-used">Used in: <span>Hosting this portfolio</span></p>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- 04. PORTFOLIO HIGHLIGHTS / PROJECTS SECTION -->
+        <section id="projects" class="py-20 px-4 md:px-8 max-w-7xl mx-auto scroll-mt-24">
+            <!-- Section Header -->
+            <div class="mb-12">
+                <span class="text-cyan-400 font-mono text-sm tracking-wider uppercase">04. Portfolio Highlights</span>
+                <h2 class="font-bebas text-4xl md:text-5xl text-white tracking-wide mt-1">Featured Academic Projects</h2>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- PROJECT 1: Surf Game (Cyan Theme) -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden backdrop-blur-md shadow-xl hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(6,182,212,0.15)] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between" data-name="Surf Game" data-course="Object-Oriented Programming" data-role="Lead Front-End Developer" data-tools="Java, Java Swing">
+                    <div>
+                        <!-- Image Preview Banner -->
+                        <div class="relative w-full h-48 bg-slate-950 overflow-hidden border-b border-slate-800/80">
+                            <img src="Images/oopsharkgame.png" alt="Surf Game Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                            
+                            <!-- Top Category Badge -->
+                            <div class="absolute top-3 left-3">
+                                <span class="px-3 py-1 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-mono rounded-lg backdrop-blur-md">2D Arcade Game</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bebas text-2xl text-white tracking-wide group-hover:text-cyan-400 transition-colors">Surf Game</h3>
+                                <span class="text-slate-500 font-mono text-xs">Java / OOP</span>
+                            </div>
+                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6">
+                                An interactive 2D desktop game inspired by Microsoft Edge Surf. Developed as an OOP final project featuring player movement, obstacle avoidance, shield & speed boosts, and collision detection.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer / Tags -->
+                    <div class="px-6 pb-6 flex items-center justify-between pt-4 border-t border-slate-800/50">
+                        <div class="flex gap-2">
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">OOP</span>
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">Java</span>
+                            
+                        </div>
+                        <button type="button" class="text-cyan-400 hover:text-cyan-300 font-mono text-xs flex items-center gap-1 transition-colors">
+                            Preview &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2: SAD Interactive Prototype (Emerald Theme) -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden backdrop-blur-md shadow-xl hover:border-emerald-500/50 hover:shadow-[0_0_25px_rgba(16,185,129,0.15)] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between" data-name="Web Prototype" data-course="Systems Analysis & Design" data-role="UI/UX Designer & Prototype Developer (built the PowerPoint prototype, UI and design)" data-tools="Microsoft PowerPoint" data-media="Videos/IT-SADPROJECT.mp4">
+                    <div>
+                        <!-- Image Preview Banner -->
+                        <div class="relative w-full h-48 bg-slate-950 overflow-hidden border-b border-slate-800/80">
+                            <img src="Images/it-sadproject.png" alt="SAD Prototype Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                            
+                            <!-- Top Category Badge -->
+                            <div class="absolute top-3 left-3">
+                                <span class="px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-mono rounded-lg backdrop-blur-md">Interactive Prototype</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bebas text-2xl text-white tracking-wide group-hover:text-emerald-400 transition-colors">Web Prototype</h3>
+                                <span class="text-slate-500 font-mono text-xs">PPT / UI/UX</span>
+                            </div>
+                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6">
+                                An interactive web application mockup built in PowerPoint for Systems Analysis & Design (SAD). Features multi-page clickable navigation, animated transitions, user login authentication flows, and wireframe layouts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer / Tags -->
+                    <div class="px-6 pb-6 flex items-center justify-between pt-4 border-t border-slate-800/50">
+                        <div class="flex gap-2">
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">UI/UX Prototyping</span>
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">System Design</span>
+                        </div>
+                        <button type="button" class="text-emerald-400 hover:text-emerald-300 font-mono text-xs flex items-center gap-1 transition-colors">
+                            Preview &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3: Cafe Essence Website (Purple Theme) -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden backdrop-blur-md shadow-xl hover:border-purple-500/50 hover:shadow-[0_0_25px_rgba(168,85,247,0.15)] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between" data-name="Cafe Essence" data-course="Web Development" data-role="Solo Developer & Designer (individual project)" data-tools="HTML, CSS" data-media="Videos/WEBDEV-CAFEESSENCE.mp4">
+                    <div>
+                        <!-- Image Preview Banner -->
+                        <div class="relative w-full h-48 bg-slate-950 overflow-hidden border-b border-slate-800/80">
+                            <img src="Images/webdevproject.png" alt="Cafe Essence Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                            
+                            <!-- Top Category Badge -->
+                            <div class="absolute top-3 left-3">
+                                <span class="px-3 py-1 bg-purple-500/20 border border-purple-500/40 text-purple-300 text-xs font-mono rounded-lg backdrop-blur-md">Web Development</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bebas text-2xl text-white tracking-wide group-hover:text-purple-400 transition-colors">Cafe Essence</h3>
+                                <span class="text-slate-500 font-mono text-xs">HTML / CSS</span>
+                            </div>
+                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6">
+                                A responsive coffee shop and bakery website featuring customized layout styling, menu displays, and clean navigation UI.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer / Tags -->
+                    <div class="px-6 pb-6 flex items-center justify-between pt-4 border-t border-slate-800/50">
+                        <div class="flex gap-2">
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">WEBDEV</span>
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">HTML/CSS</span>
+                        </div>
+                        <button type="button" class="text-purple-400 hover:text-purple-300 font-mono text-xs flex items-center gap-1 transition-colors">
+                            Preview &rarr;
+                        </button>
+                    </div>
+                </div>
+                <!-- PROJECT 4: Grab'n'Eat POS (Blue Theme) -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden backdrop-blur-md shadow-xl hover:border-blue-500/50 hover:shadow-[0_0_25px_rgba(59,130,246,0.15)] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between" data-name="Grab'n'Eat POS" data-course="Applications Development" data-role="UI Designer (designed the Windows Forms interface, plus some coding)" data-tools="Visual Studio, C#, Windows Forms" data-media="Videos/APPSDEV-GRABNKAON.mp4">
+                    <div>
+                        <!-- Image Preview Banner -->
+                        <div class="relative w-full h-48 bg-slate-950 overflow-hidden border-b border-slate-800/80">
+                            <img src="Images/appsdevproject.png" alt="Grab'n'Eat POS Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                            
+                            <!-- Top Category Badge -->
+                            <div class="absolute top-3 left-3">
+                                <span class="px-3 py-1 bg-blue-500/20 border border-blue-500/40 text-blue-300 text-xs font-mono rounded-lg backdrop-blur-md">Desktop POS</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bebas text-2xl text-white tracking-wide group-hover:text-blue-400 transition-colors">Grab'n'Eat POS</h3>
+                                <span class="text-slate-500 font-mono text-xs">C# / WinForms</span>
+                            </div>
+                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6">
+                                A desktop Canteen Point-of-Sale (POS) application built using Visual Studio C# Windows Forms, featuring custom user login authentication, ordering system, and database integration.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer / Tags -->
+                    <div class="px-6 pb-6 flex items-center justify-between pt-4 border-t border-slate-800/50">
+                        <div class="flex gap-2">
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">APPSDEV</span>
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">WinForms</span>
+                        </div>
+                        <button type="button" class="text-blue-400 hover:text-blue-300 font-mono text-xs flex items-center gap-1 transition-colors">
+                            Preview &rarr;
+                        </button>
+                    </div>
+                </div>
+                <!-- PROJECT 5: Accounting System (Indigo Theme) -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden backdrop-blur-md shadow-xl hover:border-indigo-500/50 hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between" data-name="Accounting System" data-course="Accounting" data-role="UI Designer (designed the system interface)" data-tools="Visual Studio, C#, Windows Forms" data-media="Videos/ACCOUNTING.mp4">
+                    <div>
+                        <!-- Image Preview Banner -->
+                        <div class="relative w-full h-48 bg-slate-950 overflow-hidden border-b border-slate-800/80">
+                            <img src="Images/accountingproject.png" alt="Accounting System Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                            
+                            <!-- Top Category Badge -->
+                            <div class="absolute top-3 left-3">
+                                <span class="px-3 py-1 bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 text-xs font-mono rounded-lg backdrop-blur-md">Desktop System</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bebas text-2xl text-white tracking-wide group-hover:text-indigo-400 transition-colors">Accounting System</h3>
+                                <span class="text-slate-500 font-mono text-xs">C# / WinForms</span>
+                            </div>
+                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6">
+                                A desktop Accounting Management System built using Visual Studio C# Windows Forms, featuring secure user authentication, financial ledger tracking, and database records management.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer / Tags -->
+                    <div class="px-6 pb-6 flex items-center justify-between pt-4 border-t border-slate-800/50">
+                        <div class="flex gap-2">
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">ACCOUNTING</span>
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">WinForms</span>
+                        </div>
+                        <button type="button" class="text-indigo-400 hover:text-indigo-300 font-mono text-xs flex items-center gap-1 transition-colors">
+                            Preview &rarr;
+                        </button>
+                    </div>
+                </div>
+                <!-- PROJECT 6: SJF CPU Simulator -->
+                <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden backdrop-blur-md shadow-xl hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(6,182,212,0.15)] hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between" data-name="SJF CPU Simulator" data-course="PLATECH22 (Operating Systems)" data-role="Backend Developer (process scheduling and memory allocation logic)" data-tools="Java, Java Swing" data-media="Videos/PLATECH-SJF.mp4">
+                    <div>
+                        <!-- Image Preview Banner -->
+                        <div class="relative w-full h-48 bg-slate-950 overflow-hidden border-b border-slate-800/80">
+                            <img src="Images/platechproject.png" alt="SJF Simulator Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-3 py-1 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-mono rounded-lg backdrop-blur-md">OS Simulator</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-bebas text-2xl text-white tracking-wide group-hover:text-cyan-400 transition-colors">SJF CPU Simulator</h3>
+                                <span class="text-slate-500 font-mono text-xs">Java / OS</span>
+                            </div>
+                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed mb-6">
+                                An OS Shortest Job First (SJF) Memory & CPU Scheduling Simulator created for PLATECH22, featuring process execution management and dynamic memory allocation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer / Tags -->
+                    <div class="px-6 pb-6 flex items-center justify-between pt-4 border-t border-slate-800/50">
+                        <div class="flex gap-2">
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">PLATECH22</span>
+                            <span class="px-2 py-0.5 bg-slate-800/80 text-slate-400 font-mono text-[11px] rounded border border-slate-700">Java</span>
+                        </div>
+                        <button type="button" class="text-cyan-400 hover:text-cyan-300 font-mono text-xs flex items-center gap-1 transition-colors">
+                            Preview &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- 05. CONTACT SECTION -->
+        <section id="contact" class="py-20 px-4 md:px-8 max-w-4xl mx-auto scroll-mt-24 text-center">
+            <!-- Section Header Tag -->
+            <span class="text-cyan-400 font-mono text-sm tracking-wider uppercase">05. What's Next?</span>
+            <h2 class="font-bebas text-4xl md:text-5xl text-white tracking-wide mt-1 mb-3">Let's Connect</h2>
+            
+            <p class="text-slate-400 text-xs md:text-sm max-w-lg mx-auto leading-relaxed mb-8">
+                Open for academic projects, collaboration, or questions. Feel free to reach out or check my work!
+            </p>
+
+            <!-- Main Card Box -->
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 backdrop-blur-md shadow-2xl hover:border-cyan-500/40 transition-all duration-300">
+                
+                <!-- Direct Email Text -->
+                <div class="mb-6">
+                    <span class="text-cyan-400 font-mono text-base md:text-xl font-medium select-all">
+                        mlordwenson@gmail.com
+                    </span>
+                </div>
+
+                <!-- Buttons Container -->
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-6 border-t border-slate-800/80">
+                    <!-- Copy Email Button -->
+                    <button id="copy-btn" type="button" onclick="copyEmail()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs rounded-xl border border-slate-700 hover:border-cyan-500/50 transition-all flex items-center gap-2 group">
+                        <svg class="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span id="copy-btn-text">Copy Email Address</span>
+                    </button>
+
+                    <!-- GitHub Link -->
+                    <a href="https://github.com/lordy2006" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 font-mono text-xs rounded-xl border border-cyan-500/30 transition-all flex items-center gap-2 group">
+                        <svg class="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        GitHub Profile &nearr;
+                    </a>
+
+                    <!-- Facebook Link -->
+                    <a href="https://www.facebook.com/winxgaming.yt" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 font-mono text-xs rounded-xl border border-cyan-500/30 transition-all flex items-center gap-2 group">
+                        <svg class="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        Facebook Profile &nearr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-900 py-8 text-center text-xs text-slate-600 font-mono">
+        <p>© 2026 Lord Wenson Managaytay · University of Cebu Main Campus</p>
+    </footer>
+
+    
+
+    <!-- TOAST (copy confirmation) -->
+    <div id="toast" role="status" aria-live="polite" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] px-4 py-2 rounded-lg bg-slate-900 border border-cyan-500/40 text-cyan-300 font-mono text-sm shadow-xl">Email copied to clipboard ✓</div>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" type="button" aria-label="Back to top" class="hidden fixed bottom-6 right-6 z-40 w-11 h-11 items-center justify-center rounded-full bg-slate-900/90 border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500 hover:text-slate-950 transition-colors shadow-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+    </button>
+
+    <!-- PROJECT DETAILS / PREVIEW MODAL DIALOG (ENLARGED VERSION) -->
+    <div id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 md:p-8 bg-slate-950/85 backdrop-blur-md transition-all duration-300">
+        <div class="relative w-full max-w-5xl max-h-[90vh] bg-slate-900 border border-slate-800 rounded-2xl overflow-y-auto shadow-2xl">
+            
+            <!-- Close Button (X) -->
+            <button id="close-modal" type="button" aria-label="Close preview" class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-slate-950/80 hover:bg-slate-800 text-slate-400 hover:text-white rounded-full transition-all border border-slate-700">
+                &cross;
+            </button>
+            
+            <!-- Modal Image Preview (Mas Malaking Larawan) -->
+            <div class="relative w-full h-80 md:h-[500px] bg-slate-950 overflow-hidden border-b border-slate-800">
+                <img id="modal-img" src="" alt="Project Preview" class="w-full h-full object-contain bg-slate-950 p-2">
+                <video id="modal-video" class="hidden w-full h-full object-contain bg-slate-950 p-2" controls muted loop playsinline></video>
+            </div>
+
+            <!-- Modal Details Body -->
+            <div class="p-6 md:p-8">
+                <div class="flex items-center justify-between mb-3">
+                    <h3 id="modal-title" class="font-bebas text-3xl md:text-4xl text-white tracking-wide">Project Title</h3>
+                    <span id="modal-tech" class="text-cyan-400 font-mono text-xs md:text-sm px-3.5 py-1.5 bg-cyan-500/10 border border-cyan-500/30 rounded-lg">Tech Stack</span>
+                </div>
+                
+                <p id="modal-desc" class="text-slate-300 text-sm md:text-base leading-relaxed my-4">
+                    <div id="modal-details" class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-5"></div>
+                </p>
+
+                <!-- Tags Container -->
+                <div id="modal-tags" class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+                    <!-- Awtomatikong lalabas ang tags mula sa JavaScript -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+</html>

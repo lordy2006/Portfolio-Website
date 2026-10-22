@@ -1,0 +1,375 @@
+/* Custom CSS styling for Lord Wenson Managaytay Portfolio */
+
+/* Fluid & Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Keyboard focus (visible for accessibility) */
+:focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 3px;
+}
+
+/* ---------- Navigation links ---------- */
+/* Every link has the same fixed height and a transparent bottom border,
+   so the active link never changes size or shifts the text. */
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 14px;
+    line-height: 1;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.nav-link:hover {
+    color: #22d3ee;
+}
+.nav-link.active {
+    color: #22d3ee;
+    border-bottom-color: #22d3ee;
+}
+
+.mobile-link {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 4px;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+    transition: color 0.2s ease;
+}
+.mobile-link:last-child {
+    border-bottom: 0;
+}
+.mobile-link:hover,
+.mobile-link.active {
+    color: #22d3ee;
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+.skill-card {
+    --c: 34, 211, 238;
+    border-left: 3px solid rgba(var(--c), 0.75);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease,
+                border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.skill-card[data-theme="purple"]  { --c: 168, 85, 247; }
+.skill-card[data-theme="orange"]  { --c: 249, 115, 22; }
+.skill-card[data-theme="yellow"]  { --c: 234, 179, 8; }
+.skill-card[data-theme="rose"]    { --c: 244, 63, 94; }
+.skill-card[data-theme="blue"]    { --c: 59, 130, 246; }
+.skill-card[data-theme="cyan"]    { --c: 6, 182, 212; }
+.skill-card[data-theme="indigo"]  { --c: 99, 102, 241; }
+.skill-card[data-theme="emerald"] { --c: 16, 185, 129; }
+.skill-card[data-theme="pink"]    { --c: 236, 72, 153; }
+
+.skill-card:hover {
+    border-color: rgba(var(--c), 0.6);
+    box-shadow: 0 0 25px rgba(var(--c), 0.18);
+}
+.skill-card:hover h3 {
+    color: rgb(var(--c));
+}
+
+/* Scroll Reveal (classes are added by script.js and removed after the animation) */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+.reveal-element.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.font-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.font-cursive {
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Lively & Dynamic Floating Orbs */
+@keyframes floatLively1 {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    25%  { transform: translate(220px, -150px) scale(1.3); }
+    50%  { transform: translate(-160px, 180px) scale(0.85); }
+    75%  { transform: translate(180px, -100px) scale(1.2); }
+}
+
+@keyframes floatLively2 {
+    0%, 100% { transform: translate(0px, 0px) scale(1.1); }
+    20%  { transform: translate(-220px, 160px) scale(0.8); }
+    55%  { transform: translate(250px, -190px) scale(1.35); }
+    80%  { transform: translate(-140px, -110px) scale(0.9); }
+}
+
+@keyframes floatLively3 {
+    0%, 100% { transform: translate(0px, 0px) scale(0.9); }
+    33%  { transform: translate(-200px, -170px) scale(1.3); }
+    66%  { transform: translate(210px, 150px) scale(0.85); }
+}
+
+@keyframes floatLively4 {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    30%  { transform: translate(260px, 160px) scale(1.3); }
+    70%  { transform: translate(-230px, -140px) scale(0.75); }
+}
+
+@keyframes floatLively5 {
+    0%, 100% { transform: translate(0px, 0px) scale(1.2); }
+    40%  { transform: translate(-210px, 220px) scale(0.8); }
+    80%  { transform: translate(230px, -160px) scale(1.25); }
+}
+
+.animate-orb-1 { animation: floatLively1 10s ease-in-out infinite; will-change: transform; }
+.animate-orb-2 { animation: floatLively2 13s ease-in-out infinite; will-change: transform; }
+.animate-orb-3 { animation: floatLively3 9s ease-in-out infinite; will-change: transform; }
+.animate-orb-4 { animation: floatLively4 14s ease-in-out infinite; will-change: transform; }
+.animate-orb-5 { animation: floatLively5 11s ease-in-out infinite; will-change: transform; }
+
+/* Typewriter caret */
+.typewriter-caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    margin-left: 3px;
+    vertical-align: text-bottom;
+    background: #34d399;
+    animation: caretBlink 1s steps(1) infinite;
+}
+@keyframes caretBlink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+
+/* Staggered hero entrance (plays once when the page loads) */
+@keyframes heroIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+#hero > div:first-child > * {
+    animation: heroIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+#hero > div:first-child > :nth-child(1) { animation-delay: 0.05s; }
+#hero > div:first-child > :nth-child(2) { animation-delay: 0.15s; }
+#hero > div:first-child > :nth-child(3) { animation-delay: 0.25s; }
+#hero > div:first-child > :nth-child(4) { animation-delay: 0.35s; }
+#hero > div:first-child > :nth-child(5) { animation-delay: 0.45s; }
+#hero > div:first-child > :nth-child(6) { animation-delay: 0.55s; }
+
+#hero > div:last-child {
+    animation: heroIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+}
+
+.skill-dots.dots-lit [data-lit] {
+    background-color: rgb(var(--c));
+    box-shadow: 0 0 6px rgba(var(--c), 0.6);
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    #hero > div:first-child > *,
+    #hero > div:last-child { animation: none; }
+    .typewriter-caret { animation: none; }
+    .animate-orb-1, .animate-orb-2, .animate-orb-3, .animate-orb-4, .animate-orb-5 { animation: none; }
+    .reveal-element { opacity: 1; transform: none; transition: none; }
+}
+
+/* Project modal: uses the color of the card that was clicked */
+#project-modal { --c: 6, 182, 212; }
+
+#project-modal > div {
+    border-color: rgba(var(--c), 0.5);
+    box-shadow: 0 0 40px rgba(var(--c), 0.2);
+}
+#modal-tech {
+    color: rgb(var(--c));
+    background: rgba(var(--c), 0.1);
+    border-color: rgba(var(--c), 0.35);
+}
+#modal-details > div {
+    border-color: rgba(var(--c), 0.25);
+}
+#modal-details > div > p:first-child {
+    color: rgb(var(--c));
+}
+#modal-tags span {
+    color: rgb(var(--c));
+    border-color: rgba(var(--c), 0.35);
+}
+
+/* Skill icons use the same color as their card */
+.skill-icon {
+    color: rgb(var(--c));
+    font-size: 1.05em;
+    margin-right: 8px;
+    vertical-align: -0.08em;
+}
+svg.skill-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+
+.skill-used {
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #64748b;
+}
+.skill-used span {
+    color: rgb(var(--c));
+}
+
+/* Soft glow that follows the mouse */
+#cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    margin: -250px 0 0 -250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.14) 0%, rgba(16, 185, 129, 0.06) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    will-change: transform;
+}
+#cursor-glow.is-active {
+    opacity: 1;
+}
+@media (hover: none), (prefers-reduced-motion: reduce) {
+    #cursor-glow { display: none; }
+}
+
+/* Hobby flip cards */
+.flip-card {
+    perspective: 800px;
+    height: 130px;
+    cursor: pointer;
+    outline-offset: 4px;
+}
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+}
+.flip-card.is-flipped .flip-inner,
+.flip-card:focus-visible .flip-inner {
+    transform: rotateY(180deg);
+}
+@media (hover: hover) {
+    .flip-card:hover .flip-inner {
+        transform: rotateY(180deg);
+    }
+}
+.flip-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    text-align: center;
+    border-radius: 14px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.flip-front {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(var(--c), 0.45);
+}
+.flip-back {
+    transform: rotateY(180deg);
+    background: rgba(var(--c), 0.14);
+    border: 1px solid rgba(var(--c), 0.6);
+    box-shadow: 0 0 20px rgba(var(--c), 0.15);
+}
+@media (prefers-reduced-motion: reduce) {
+    .flip-inner { transition: none; }
+}
+
+/* Quick facts chips */
+.fact-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: rgb(var(--c));
+    background: rgba(var(--c), 0.1);
+    border: 1px solid rgba(var(--c), 0.4);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.fact-chip:hover {
+    transform: translateY(-2px);
+    background: rgba(var(--c), 0.18);
+    box-shadow: 0 0 14px rgba(var(--c), 0.25);
+}
+
+/* Photo captions */
+.photo-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 22px 12px 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #e2e8f0;
+    background: linear-gradient(to top, rgba(2, 6, 23, 0.85), transparent);
+    pointer-events: none;
+}
+
+/* Tighter crop for the first photo (zooms in on the center to cut the black space) */
+.photo-zoom {
+    transform: scale(1.35);
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+.group:hover .photo-zoom {
+    transform: scale(1.45);
+}
+@media (prefers-reduced-motion: reduce) {
+    .photo-zoom, .fact-chip { transition: none; }
+}
